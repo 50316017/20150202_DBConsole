@@ -14,8 +14,8 @@ public class DBConsole_main {
 		
 		
 		
-	int rgs,lgs;
-		String name,rank;
+	int tojo,kakutoku;
+		String kisen;
 		ResultSet rs;
 		MySQL mysql = new MySQL(null);
 		rs = mysql.selectAll();
@@ -27,14 +27,12 @@ public class DBConsole_main {
 
 		try {
 			while(rs.next()){
-				name = rs.getString("name");
-				rgs = rs.getInt("R_Grip_Strength");
-				lgs = rs.getInt("L_Grip_Strength");
-				rank = rs.getString("Rank");
-					System.out.println("NAME:"+name);
-					System.out.println("Right_Grip_Strength:"+rgs);
-					System.out.println("Left_Grip_Strength:"+lgs);
-					System.out.println("Rank:"+rank);
+				kisen = rs.getString("Šûí–¼");
+				tojo = rs.getInt("“oê‰ñ”");
+				kakutoku = rs.getInt("ƒ^ƒCƒgƒ‹Šl“¾‰ñ”");
+					System.out.println("Šûí–¼:"+kisen);
+					System.out.println("“oê‰ñ”:"+tojo);
+					System.out.println("ƒ^ƒCƒgƒ‹Šl“¾‰ñ”:"+kakutoku);
 					
 			}
 		} catch (SQLException e) {

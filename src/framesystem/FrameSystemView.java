@@ -31,7 +31,7 @@ public class FrameSystemView extends Frame implements ActionListener,WindowListe
 	CardLayout cardlayout;
 	Panel panel;
 	Panel btnpanel;
-	int ave;
+	
 	
 	
 	public FrameSystemView(FrameSystemController controller) {
@@ -39,7 +39,7 @@ public class FrameSystemView extends Frame implements ActionListener,WindowListe
 		panel = new Panel();
 		btnpanel = new Panel();
 		addWindowListener(this);
-		setTitle("Powerful_Animals");
+		setTitle("habuyoshiharu");
 		cardlayout = new CardLayout();
 		setLayout(cardlayout);
 		btnpanel.add(button1,BorderLayout.CENTER);
@@ -53,8 +53,8 @@ public class FrameSystemView extends Frame implements ActionListener,WindowListe
 	@Override
 	public void actionPerformed(ActionEvent e){
 		if(e.getSource()==button1){
-			int rgs,lgs;
-			String name,rank;
+			int tojo,kakutoku;
+			String kisen;
 			ResultSet rs;
 			MySQL mysql = new MySQL(null);
 			rs = mysql.selectAll();
@@ -62,14 +62,13 @@ public class FrameSystemView extends Frame implements ActionListener,WindowListe
 			try{
 				panel.add(new Label("DataBase Loaded"));
 				while(rs.next()){
-					ave = 0;
-					name = rs.getString("name");
-					rgs = rs.getInt("R_Grip_Strength");
-					lgs = rs.getInt("L_Grip_Strength");
-					rank = rs.getString("Rank");
-					ave = (rgs+lgs)/2;
-					data.addValue(ave,name,""+name);
-					panel.add(new Label("Name:"+name+"	R_Grip_Strength:"+rgs+"	L_Grip_Strength:"+lgs+"	Rank:"+rank));
+					
+					kisen = rs.getString("ä˚êÌñº");
+					tojo = rs.getInt("ìoèÍâÒêî");
+					kakutoku = rs.getInt("É^ÉCÉgÉãälìæâÒêî");
+					
+					data.addValue(tojo,kisen,""+kisen);
+					panel.add(new Label("kisen:"+kisen+"	tojo:"+tojo+"	kakutoku:"+kakutoku));
 				}
 					
 			}catch(SQLException et){
